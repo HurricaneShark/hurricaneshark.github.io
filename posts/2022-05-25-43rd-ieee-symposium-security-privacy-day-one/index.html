@@ -1,0 +1,77 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><style type=text/css>body{font-family:monospace}</style><title>43rd IEEE Symposium on Security and Privacy, Day One</title><link rel=stylesheet href=/css/style.css><script defer data-domain=hurricaneshark.com src=https://plausible.io/js/plausible.js></script></head><body><header>=====================<br>== <a href=https://hurricaneshark.github.io/>Hurricane Shark</a> ==<br>=====================<div style=float:right>Reverse Engineering, Pen Testing, and Bad Guitar Solos</div><br><p><nav><a href=/><b>Start</b></a>.
+<a href=/posts/><b>Posts</b></a>.
+<a href=/categories/><b>Categories</b></a>.
+<a href=/tags/><b>Tags</b></a>.</nav></p></header><main><article><h1>43rd IEEE Symposium on Security and Privacy, Day One</h1><b><time>25.05.2022 17:43</time></b>
+<a href=/tags/43rd-ieee-symposium-on-security-and-privacy>43rd ieee symposium on security and privacy</a>
+<a href=/tags/iot>iot</a>
+<a href=/tags/vr>vr</a>
+<a href=/tags/authentication>authentication</a><div><p>Attended the first day of the 43rd IEEE Symposium on Security and Privacy (<a href=https://www.ieee-security.org/TC/SP2022/>website</a>)
+for my day job&mldr; by which I mean I finally got around to watching the recordings for
+the first day, two days later. Virtual conferences are a wonderful thing.
+Figured I&rsquo;d write about it here, partially because it&rsquo;s relevant, and partially
+because I&rsquo;m expecting a bean counter at my day job six months from now to order me
+to prove I really did &ldquo;virtually attend&rdquo; it.</p><p>Decent conference, academics speaking to academics. Reminded me of my past life
+as a physicist. Not going to lie, every time I saw a mathematical formula that
+someone had clearly copy-paste&rsquo;d from a LaTeX document, I felt a little nostaglic
+for my postdoc glory days of working 80 hour weeks making less than a fresh college grad.
+Nothing on the first day was relevant for my day job, so I went with the Smart
+Home and Virtual Reality session, because I&rsquo;m not enough of a paranoid lunatic
+already. The session was short (only three talks), might as well describe them
+all:</p><p>First talk was &ldquo;SoK: Authentication in Augmented and Virtual Reality&rdquo; by Stephenson et al. As the
+title suggests, it was a review-article-esque talk about existing methods in
+practice and literature for authentication from within an AR/VR environment.
+Some should be pretty familiar to anyone that&rsquo;s used a VR headset before: use
+a virtual keyboard within VR to enter your password, log into a linked device on
+your network. My personal favorite was an &ldquo;obfuscated PIN&rdquo; approach, which is a
+PIN-based approach with the added twist that the user is shown a numeric keypad
+with a one-time pad applied on top of it within the VR/AR environment. The user
+then speaks their PIN out loud encoded by the one-time pad. Clever exploitation
+of the fact that we memorize PINs spatially and not numerically. The authors
+were touting biometrics especially; I personally don&rsquo;t want to worry about my
+iris scans being leaked, and I suspect I&rsquo;m not alone.</p><p>Next talk was &ldquo;Delay Wreaks Havoc on Your Smart Home: Delay-based Automation
+Interference Attacks&rdquo; by Chi et al. Was about phantom-delay attacks in IoT, which is a
+man-in-the-middle attack where the MitM delays IoT messages back
+to the servers to mess with the ordering and consistency of messages. The
+authors proposed a &ldquo;delay-based automation attack interference attack&rdquo; where
+an attacker can delay triggers for home automation rules to carry out attacks:
+a &ldquo;lock the front door when I&rsquo;m away&rdquo; rule will leave the front door
+wide open for thieves if an attacker can delay the &ldquo;I&rsquo;m away&rdquo; message back to
+the server, and &ldquo;sound the alarm at night if I&rsquo;m not moving but there&rsquo;s movement
+in the house&rdquo; can be circumvented if the &ldquo;I&rsquo;m not moving&rdquo; message is delayed.
+Several well-known home automation systems are vulnerable, so not a strictly
+academic concern.</p><p>The final talk of the session was &ldquo;Peekaboo: A Hub-Based Approach to Enable
+Transparency in Data Processing within Smart Homes&rdquo; by Jin et al., where the authors
+propose a framework spawned out of talks with Google Nest that proveably collects only aggregate data from edge devices
+&ldquo;to assure users&rdquo; (more on that later). Functionally, it&rsquo;s a programming paradigm
+where preprocessing operators can be connected to data sources to allow
+developers to control how fine- or coarse-grained data is collected, and this is
+the only way for developers to access data sources (white-list-only). Think of
+having a &ldquo;weekly&rdquo; preprocessing operator which connects to a &ldquo;screen on&rdquo; data
+stream to generate the &ldquo;weekly screen usage&rdquo; report that Android and iPhone
+provide.</p><p>Part of me feels bad for what I&rsquo;m about to say, because the presenter was just
+a kid trying to get his PhD (the moderator said as much in her introduction),
+but this approach is misguided for the reason that the presenter himself
+brought up early on in his talk, when he argued against open sourcing &ldquo;because
+reading source code is too much work&rdquo; (what?): the IoT device is still a black
+box. In particular, it is a black box controlled by a &ldquo;big tech&rdquo; company
+which is itself collecting and storing absurd amounts of data. Adding
+aggregation methods doesn&rsquo;t change this; to aggregate data over various time
+periods, I need a data stream precise enough to feed all those aggregation
+methods in the first place.</p><p>People aren&rsquo;t mistrustful of apps running on smart devices, they&rsquo;re mistrustful of the smart device itself.
+Your average user isn&rsquo;t shying away from buying an Alexa device because they&rsquo;re afraid of the developer of an Alexa skill stealing
+data, they&rsquo;re afraid of Amazon. They don&rsquo;t care whether the microphone is passing
+data to an app in a fine- or coarse-grained fashion, they&rsquo;re concerned that the
+microphone exists at all. If anything, users of IoT devices <em>want</em> ridiculously
+fine grained data from their IoT device, they <em>want</em> their Apple Watch to tell
+them exactly what their heart rate was to the minute five days ago or their
+performance on their Peloton ride from three months ago to the second. The
+problem isn&rsquo;t the degree of aggregation, the problem is trust in the data provider.
+There&rsquo;s a reason I mentioned the Google Nest connection. I can&rsquo;t help
+shake the feeling that Google Nest&rsquo;s motivation is to attempt to solve a &ldquo;problem&rdquo;
+that the industry has amplified to try to distract the average consumer
+(&ldquo;see, we&rsquo;re safe, we&rsquo;re AGGREGATING your data!&rdquo;) This may have worked ten years
+ago, but consumers have become jaded and cynical, and rightly so.</p><p>Peekaboo has legitimacy, don&rsquo;t get me wrong, and the problem it solves is a valid
+one. Hope the kid gets his PhD.</p><p>That&rsquo;s it for this installment of &ldquo;Hurricane Shark takes too detailed of notes
+to avoid packing for yet another trip&rdquo;, posts for next two conference days
+hopefully won&rsquo;t be this rambling.</p></div></article></main><aside><div><div><h3>LATEST POSTS</h3></div><div><ul><li><a href=/posts/2022-05-25-43rd-ieee-symposium-security-privacy-day-one/>43rd IEEE Symposium on Security and Privacy, Day One</a></li><li><a href=/posts/2022-05-25-adding-plausible-analytics/>Adding Plausible Analytics to Website</a></li><li><a href=/posts/2022-05-21-cyber-apocalypse-ctf-2022-results/>Cyber Apocalypse CTF 2022 Results</a></li><li><a href=/posts/2022-05-21-hello-world/>Hello World</a></li></ul></div></div></aside><footer><p>&copy; 2022 <a href=https://hurricaneshark.github.io/><b>Hurricane Shark</b></a>.
+<a href=https://github.com/hurricaneshark><b>GitHub</b></a>.</p></footer></body></html>
