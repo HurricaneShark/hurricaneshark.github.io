@@ -1,0 +1,32 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><style type=text/css>body{font-family:monospace}</style><title>Adding Plausible Analytics to Website</title><link rel=stylesheet href=/css/style.css><script defer data-domain=hurricaneshark.com src=https://plausible.io/js/plausible.js></script></head><body><header>=====================<br>== <a href=https://hurricaneshark.github.io/>Hurricane Shark</a> ==<br>=====================<div style=float:right>Reverse Engineering, Pen Testing, and Bad Guitar Solos</div><br><p><nav><a href=/><b>Start</b></a>.
+<a href=/posts/><b>Posts</b></a>.
+<a href=/categories/><b>Categories</b></a>.
+<a href=/tags/><b>Tags</b></a>.</nav></p></header><main><article><h1>Adding Plausible Analytics to Website</h1><b><time>25.05.2022 15:34</time></b>
+<a href=/tags/plausible>plausible</a>
+<a href=/tags/analytics>analytics</a>
+<a href=/tags/matomo>matomo</a>
+<a href=/tags/hugo>hugo</a>
+<a href=/tags/privacy>privacy</a>
+<a href=/tags/gdpr>gdpr</a><div><p>Added Plausible Analytics (<a href=https://plausible.io>plausible.io</a>) to the website
+last night. Debated if I should make a post about it, figured that I might as
+well in case anyone accuses me of having &ldquo;secret&rdquo; trackers in the future.</p><p>Out of all the options I looked into, Plausible and Matomo were the two strongest
+privacy-focused trackers that offered both free roll-your-own (if I ever choose
+to go the self-hosted route again) and paid cloud versions. Plausible ultimately
+won out because its tracking script is tiny and Matomo upcharges for features in
+its self-hosted option. Cloud-hosted Plausible has no free option, but honestly
+that helps me trust it more, not less. Free web services cost too much.</p><p>Installing Plausible Analytics in Hugo was pretty simple: figure out which file
+in your theme contains the template to generate the <code>&lt;head></code> block, create a
+copy of that file in the base <code>layout</code> folder (including subfolders if needed)
+to overwrite the default template during site generation, and copy a tiny script
+Plausible provides into the <code>&lt;head></code> block template in the copied file. Done.
+In the Hugo theme I&rsquo;m currently using (smol), the <code>&lt;head></code> block was not located
+in any file in <code>layouts/partials/</code> as most online documentation including Hugo&rsquo;s
+official documentation suggests, but rather in <code>layouts/_default/baseof.html</code>.
+Something to keep in mind.</p><p>There&rsquo;s an option to open up the analytics to everyone. I commend them for the
+idea, but think it&rsquo;s too much of a security risk on <em>my</em> end, i.e. could be used
+by an attacker to geolocate me. Good idea for privacy-minded companies with
+public mailing address in their footers, bad idea for individuals.</p><p>Plausible also has the nice perk that it&rsquo;s engineered to be cookie-less and
+satisfy GDPR with no required, ugly pop-up that is rendered functionally
+pointless by everyone&rsquo;s muscle memory being trained to click through it anyway,
+but that&rsquo;s a topic for another post.</p></div></article></main><aside><div><div><h3>LATEST POSTS</h3></div><div><ul><li><a href=/posts/2022-05-25-adding-plausible-analytics/>Adding Plausible Analytics to Website</a></li><li><a href=/posts/2022-05-21-cyber-apocalypse-ctf-2022-results/>Cyber Apocalypse CTF 2022 Results</a></li><li><a href=/posts/2022-05-21-hello-world/>Hello World</a></li></ul></div></div></aside><footer><p>&copy; 2022 <a href=https://hurricaneshark.github.io/><b>Hurricane Shark</b></a>.
+<a href=https://github.com/hurricaneshark><b>GitHub</b></a>.</p></footer></body></html>
