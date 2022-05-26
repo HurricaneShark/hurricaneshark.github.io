@@ -1,4 +1,4 @@
-baseURL = 'https://hurricaneshark.github.io/'
+baseURL = 'https://hurricaneshark.com/'
 languageCode = 'en-us'
 title = 'Hurricane Shark'
 theme = "smol"
