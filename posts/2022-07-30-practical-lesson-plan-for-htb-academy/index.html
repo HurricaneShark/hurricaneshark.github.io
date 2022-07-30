@@ -1,0 +1,84 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><style type=text/css>body{font-family:monospace}</style><title>Practical Lesson Plan for HackTheBox Academy</title><link rel=stylesheet href=/css/style.css><script defer data-domain=hurricaneshark.com src=https://plausible.io/js/plausible.js></script></head><body><header>=====================<br>== <a href=https://hurricaneshark.com/>Hurricane Shark</a> ==<br>=====================<div style=float:right>Reverse Engineering, Pen Testing, and Bad Guitar Solos</div><br><p><nav><a href=/><b>Start</b></a>.
+<a href=/posts/><b>Posts</b></a>.
+<a href=/categories/><b>Categories</b></a>.
+<a href=/tags/><b>Tags</b></a>.</nav></p></header><main><article><h1>Practical Lesson Plan for HackTheBox Academy</h1><b><time>30.07.2022 11:58</time></b>
+<a href=/tags/hackthebox>hackthebox</a>
+<a href=/tags/htb-academy>htb academy</a>
+<a href=/tags/starting-point>starting point</a>
+<a href=/tags/sense-of-pride-and-accomplishment>sense of pride and accomplishment</a><div><p>Over the last two months I&rsquo;ve been focusing on improving my Red Team skills in
+my spare time, as the security aspects of my day job fall well into the Blue Team camp. For
+this, I&rsquo;ve been working through HackTheBox Academy classes (<a href=https://academy.hackthebox.com/>https://academy.hackthebox.com/</a>)
+and the Starting Point series on the main HackTheBox website
+(<a href=https://app.hackthebox.com/starting-point)>https://app.hackthebox.com/starting-point)</a>.</p><p>I devised a plan to use them as complementary services: try to complete all 21
+machines of the Starting Point series, using HtB Academy instead of the
+writeups. I worked through each machine using only the questions to guide me,
+resorting to the writeup as a last resort. When I needed to use the writeups,
+I did not follow blindly along, instead I skimmed the writeup to figure
+out what skill I was lacking, then I would take the associated HtB Academy course,
+come back to the machine, and use what I learned to continue.</p><p>While this approach is definitely slower than following along with writeups or
+YouTube videos, I learned far more than I would have from blindly copy-pasting
+from a PDF, and it did give me a certain Sense of Pride and Accomplishment,
+even if I was being guided by the questions. &ldquo;If I cannot create I cannot
+understand&rdquo; and all that. (There are two exceptions to this rule of &ldquo;don&rsquo;t rely
+on the writeup&rdquo; that I would recommmend, which I cover later.)</p><p>To aid anyone else that would like to be more proactive while doing Starting
+Point, or just want some structure when doing HtB Academy classes, here I&rsquo;m
+providing the list of classes that I took in order, as well as improvements to
+the lesson plan that I would make if I were doing it all over again. Consider
+this the missing syllabus for HackTheBox Academy 101.</p><h1 id=time>Time</h1><p>All told, I completed 21 machines on the main HtB website and 22 classes
+on HtB Academy. HtB Academy has 51 classes in Tier 2 and below at the time
+of this writing, putting this lesson plan at 43% of the content done.</p><p>This took me at least 8 hours a week (likely more) over the span of two months.
+Hence my lack of posting for two months. This also included a two-week span
+where my wife was away on business and I reverted back to
+bachelor-in-front-of-a-computer mode. Being a real human being would add
+another two weeks or so.</p><h1 id=cost>Cost</h1><p>If you want to follow this plan, you&rsquo;ll need to throw money at HtB eventually
+to have access to the VIP machines on the main HtB website as well as cubes for
+HtB Academy classes.</p><p>If you qualify for the Student plan and you&rsquo;re committed, that would be the
+cheapest option. While you only get access to Tier II and below classes,
+this is not a major sacrifice as there&rsquo;s not many Tier III and IV classes,
+and what classes exist tend to be highly specialized. I&rsquo;m also unsure whether
+you keep access to modules you&rsquo;ve completed after stopping your Student
+subscription, however, this shouldn&rsquo;t be an issue if you&rsquo;re taking detailed
+notes like you should be.</p><p>If you&rsquo;re not a student, one month of a Platinum subscription (68 USD for 1000
+cubes) will be all you need to do the courses I&rsquo;ve listed here, and four months
+will give you enough cubes to buy all modules up to and including Tier III.</p><h1 id=struggles>Struggles</h1><p>The one major stumbling block for me throughout Starting Point was Windows, as
+my professional proficiency is in Linux environments. It didn&rsquo;t help matters
+that the Windows-specific content on HtB Academy are sluggish marathons
+that tend to resemble reading textbooks and not the usual &ldquo;gamified&rdquo; material
+that HtB strives for.</p><p>Accordingly, I found myself reaching for the writeup on Windows machines far
+more than Linux machines, especially when it came to privilege escalation.
+However, had I not forced myself to complete the Starting Point series, I
+probably would have stuck to Linux boxes and avoiding Windows boxes entirely,
+so it was worth it to allow myself to cheat here to expand my skillset.</p><h1 id=the-class-list>The Class List</h1><h2 id=starting-point-tier-0>Starting Point Tier 0</h2><p>This is a lightweight tier, where you&rsquo;re learning how to use individual
+services. Not much exploitation going on, unless you&rsquo;re a politician who
+considers downloading a file from a public share to be &ldquo;hacking&rdquo;. There&rsquo;s a
+good chance that you could finish this Tier without doing any of the HtB
+Academy courses, just by following the hand-holding questions.</p><p>That being said, I came into this Tier having already done the following
+classes:</p><ul><li>Introduction to Academy</li><li>Linux Fundamentals</li><li>Introduction to Networking</li><li>Web Requests</li><li>JavaScript Deobfuscation</li><li>Getting Started</li></ul><p>Out of all these classes, &ldquo;JavaScript Deobfuscation&rdquo; could be dropped if you&rsquo;re
+really tight on time. as it&rsquo;s not a skill that&rsquo;s used in this series. (The
+only time I can remember using it is in the Skill Assessment for Server-Side
+Attacks.)</p><p>If I were to change anything, I would add &ldquo;Windows Fundamentals&rdquo; to this Tier,
+perhaps right after &ldquo;Linux Fundamentals&rdquo;.</p><h2 id=starting-point-tier-1>Starting Point Tier 1</h2><p>Starting Point Tier 1 is where we start doing actual exploitations; however,
+there&rsquo;s not much in the way of pivoting or exploitation chaining going on.
+This is probably the longest Tier in terms of classes, as we&rsquo;ll be learning how
+to do various exploits by hand:</p><ul><li>Network Enumeration with Nmap</li><li>Introduction to Web Applications</li><li>SQL Injection Fundamentals</li><li>File Inclusion</li><li>Attacking Web Applications with Ffuf</li><li>Login Brute Forcing</li><li>Using Web Proxies</li><li>Cross-Site Scripting (XSS)</li><li>Server-Side Attacks</li></ul><p>If I were to change anything here, I would move &ldquo;Attacking Web Applications
+with Ffuf&rdquo; and &ldquo;Using Web Proxies&rdquo; much earlier, right after the Nmap course,
+and also add &ldquo;Intro to Network Traffic Analysis&rdquo; to this Tier.</p><h2 id=starting-point-tier-2>Starting Point Tier 2</h2><p>Starting Point Tier 2 is where we start chaining exploitations and engage in
+pivoting; accordingly, privilege escalation is the name of the game here. This
+is likely the Tier where you&rsquo;ll need to &ldquo;cheat&rdquo; and look at the writeups
+from time to time, especially if you&rsquo;re not a Windows expert:</p><ul><li>Windows Fundamentals</li><li>Introduction to Active Directory</li><li>Linux Privilege Escalation</li><li>SQLMap Essentials</li><li>Intro to Network Traffic Analysis</li><li>Introduction to Bash Scripting</li><li>Web Attacks</li></ul><p>As I previously mentioned, I would move &ldquo;Windows Fundamentals&rdquo; and &ldquo;Into
+to Network Traffic Analysis&rdquo; into earlier Tiers; if I were going to add anything
+new, it would be &ldquo;Windows Privilege Escalation&rdquo;.</p><p>As an aside, the &ldquo;Unified&rdquo; machine is a special case where I&rsquo;d recommend following
+along with the writeup because it contains two specific exploitations (the Log4J
+vulnerability and NoSQL databases [specifically MongoDB]) that do not appear to
+covered by any HtB Academy course.</p><h2 id=additional-courses>Additional Courses</h2><p>Here&rsquo;s a list of classes that I did not take to complete Starting Point, but
+could be useful:</p><ul><li>Windows Privilege Escalation: This is the big one I&rsquo;ve omitted; if you have
+enough time or Windows is a necessary skill for you, this is absolutely a
+class you should take.</li><li>Cracking Passwords with Hashcat: The Starting Point machines use John the
+Ripper for cracking passwords, not Hashcat, but the principles are the same.
+If concepts like hashes, dictionary attacks, and rainbow tables are unknown
+to you, it&rsquo;s probably a good idea to take this course.</li><li>File Transfers: This is a topic that enough of the other courses cover
+(the Getting Started module has a section on this, for example) that you&rsquo;ll
+know the basics through osmosis. Supposedly has some info on evading
+detection, which could be useful, but this doesn&rsquo;t show up in the Starting
+Point machines.</li></ul></div></article></main><aside><div><div><h3>LATEST POSTS</h3></div><div><ul><li><a href=/posts/2022-07-30-practical-lesson-plan-for-htb-academy/>Practical Lesson Plan for HackTheBox Academy</a></li><li><a href=/posts/2022-05-25-43rd-ieee-symposium-security-privacy-day-one/>43rd IEEE Symposium on Security and Privacy, Day One</a></li><li><a href=/posts/2022-05-25-adding-plausible-analytics/>Adding Plausible Analytics to Website</a></li><li><a href=/posts/2022-05-21-cyber-apocalypse-ctf-2022-results/>Cyber Apocalypse CTF 2022 Results</a></li><li><a href=/posts/2022-05-21-hello-world/>Hello World</a></li></ul></div></div></aside><footer><p>&copy; 2022 <a href=https://hurricaneshark.com/><b>Hurricane Shark</b></a>.
+<a href=https://github.com/hurricaneshark><b>GitHub</b></a>.</p></footer></body></html>
