@@ -3,7 +3,7 @@ title: "Practical Lesson Plan for HackTheBox Academy"
 date: 2022-07-30T11:58:11-04:00
 slug: 2022-07-30-practical-lesson-plan-for-htb-academy
 type: posts
-draft: true
+draft: false
 categories:
   - education
 tags:
